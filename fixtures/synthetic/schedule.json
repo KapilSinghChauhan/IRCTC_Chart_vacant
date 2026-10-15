@@ -1,0 +1,12 @@
+{
+  "trainNumber": "99999",
+  "trainName": "SYNTHETIC MAIL",
+  "stationFrom": "AAA",
+  "stationTo": "DDD",
+  "stationList": [
+    {"stationCode": "AAA", "stationName": "ALPHA", "distance": "0", "stnSerialNumber": "1", "status": "ACTIVE"},
+    {"stationCode": "BBB", "stationName": "BRAVO", "distance": "10", "stnSerialNumber": "2", "status": "ACTIVE"},
+    {"stationCode": "CCC", "stationName": "CHARLIE", "distance": "25", "stnSerialNumber": "3", "status": "ACTIVE"},
+    {"stationCode": "DDD", "stationName": "DELTA", "distance": "40", "stnSerialNumber": "4", "status": "ACTIVE"}
+  ]
+}

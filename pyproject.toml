@@ -1,0 +1,32 @@
+[project]
+name = "irctc-chart-vacant"
+version = "0.1.0"
+description = "Read-only IRCTC online-chart vacant berth analyser"
+readme = "README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+authors = [{ name = "Kapil Singh Chauhan" }]
+dependencies = [
+  "fastapi>=0.115.0",
+  "httpx>=0.27.0",
+  "pydantic>=2.8.0",
+  "websockets>=12.0",
+  "uvicorn[standard]>=0.30.0",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3.0",
+  "pytest-asyncio>=0.24.0",
+]
+
+[project.scripts]
+seat-engine = "app.main:run"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-q"

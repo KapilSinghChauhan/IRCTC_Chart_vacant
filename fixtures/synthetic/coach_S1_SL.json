@@ -1,0 +1,87 @@
+{
+  "coachName": "S1",
+  "error": null,
+  "bdd": [
+    {
+      "cabinCoupe": null,
+      "cabinCoupeNameNo": "1",
+      "berthCode": "LB",
+      "berthNo": 1,
+      "from": "AAA",
+      "to": "DDD",
+      "enable": true,
+      "bsd": [
+        {"splitNo": 1, "from": "AAA", "to": "BBB", "quota": "GN", "occupancy": false},
+        {"splitNo": 2, "from": "BBB", "to": "CCC", "quota": "GN", "occupancy": false},
+        {"splitNo": 3, "from": "CCC", "to": "DDD", "quota": "GN", "occupancy": true}
+      ]
+    },
+    {
+      "cabinCoupe": null,
+      "cabinCoupeNameNo": "1",
+      "berthCode": "MB",
+      "berthNo": 2,
+      "from": "AAA",
+      "to": "DDD",
+      "enable": true,
+      "bsd": [
+        {"splitNo": 1, "from": "AAA", "to": "BBB", "quota": "GN", "occupancy": true},
+        {"splitNo": 2, "from": "BBB", "to": "CCC", "quota": "GN", "occupancy": false},
+        {"splitNo": 3, "from": "CCC", "to": "DDD", "quota": "GN", "occupancy": false}
+      ]
+    },
+    {
+      "cabinCoupe": null,
+      "cabinCoupeNameNo": "1",
+      "berthCode": "UB",
+      "berthNo": 3,
+      "from": "AAA",
+      "to": "DDD",
+      "enable": true,
+      "bsd": [
+        {"splitNo": 1, "from": "AAA", "to": "BBB", "quota": "GN", "occupancy": false},
+        {"splitNo": 2, "from": "BBB", "to": "CCC", "quota": "GN", "occupancy": false},
+        {"splitNo": 3, "from": "CCC", "to": "DDD", "quota": "GN", "occupancy": false}
+      ]
+    },
+    {
+      "cabinCoupe": null,
+      "cabinCoupeNameNo": "1",
+      "berthCode": "SL",
+      "berthNo": 4,
+      "from": "AAA",
+      "to": "DDD",
+      "enable": true,
+      "bsd": [
+        {"splitNo": 1, "from": "AAA", "to": "BBB", "quota": "GN", "occupancy": false},
+        {"splitNo": 2, "from": "BBB", "to": "CCC", "quota": "GN", "occupancy": true},
+        {"splitNo": 3, "from": "CCC", "to": "DDD", "quota": "GN", "occupancy": false}
+      ]
+    },
+    {
+      "cabinCoupe": null,
+      "cabinCoupeNameNo": "1",
+      "berthCode": "SU",
+      "berthNo": 5,
+      "from": "AAA",
+      "to": "DDD",
+      "enable": true,
+      "bsd": [
+        {"splitNo": 1, "from": "AAA", "to": "BBB", "quota": "GN"},
+        {"splitNo": 2, "from": "BBB", "to": "DDD", "quota": "GN", "occupancy": false}
+      ]
+    },
+    {
+      "cabinCoupe": null,
+      "cabinCoupeNameNo": "1",
+      "berthCode": "LB",
+      "berthNo": 6,
+      "from": "AAA",
+      "to": "DDD",
+      "enable": true,
+      "bsd": [
+        {"splitNo": 1, "from": "AAA", "to": "DDD", "quota": "GN", "occupancy": true}
+      ]
+    }
+  ]
+}

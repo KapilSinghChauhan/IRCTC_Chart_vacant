@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Chart desk — vacant berth intelligence</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Condensed:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500&family=Newsreader:opsz,wght@6..72,500;6..72,650&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <div class="sheet">
+    <header class="mast">
+      <p class="mast-kicker">Read-only analysis · no booking · no payment</p>
+      <h1>Vacant berth chart desk</h1>
+      <p class="mast-lede">Ranks confirmed vacant runs on a train after charting, using coach composition splits and verified route kilometres.</p>
+    </header>
+
+    <form id="enquiry" class="slip">
+      <label>Train no.
+        <input name="train_no" value="18609" required maxlength="5" inputmode="numeric" />
+      </label>
+      <label class="combo-field">Boarding
+        <input type="hidden" name="boarding_station" id="boarding_station" value="RNC" />
+        <input id="boarding_search" type="text" value="RANCHI (RNC)" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-controls="boarding_menu" role="combobox" aria-expanded="false" />
+        <ul id="boarding_menu" class="station-menu" role="listbox" hidden></ul>
+      </label>
+      <label class="combo-field">Destination
+        <input type="hidden" name="destination_station" id="destination_station" value="GAYA" />
+        <input id="destination_search" type="text" value="GAYA JN (GAYA)" autocomplete="off" spellcheck="false" aria-autocomplete="list" aria-controls="destination_menu" role="combobox" aria-expanded="false" />
+        <ul id="destination_menu" class="station-menu" role="listbox" hidden></ul>
+      </label>
+      <label>Journey date
+        <input name="journey_date" type="date" value="2026-10-14" required />
+      </label>
+      <fieldset class="classes">
+        <legend>Classes</legend>
+        <label><input type="checkbox" name="classes" value="SL" checked /> SL</label>
+        <label><input type="checkbox" name="classes" value="3A" checked /> 3A</label>
+        <label><input type="checkbox" name="classes" value="2A" checked /> 2A</label>
+        <label><input type="checkbox" name="classes" value="1A" checked /> 1A</label>
+        <label><input type="checkbox" name="classes" value="3E" checked /> 3E</label>
+      </fieldset>
+      <button type="submit">Analyse chart</button>
+    </form>
+
+    <p id="status" class="status" role="status">Saved charts are used when present. Other trains are read from IRCTC inside Chrome (CDP in-page fetch). Failures are shown here, not as a filter miss.</p>
+
+    <section class="filters" hidden>
+      <label>Class
+        <select id="filter-class"><option value="">All</option></select>
+      </label>
+      <label>Coach
+        <select id="filter-coach"><option value="">All</option></select>
+      </label>
+      <label>Berth type
+        <select id="filter-berth"><option value="">All</option></select>
+      </label>
+      <label>Coverage
+        <select id="filter-coverage">
+          <option value="">All</option>
+          <option value="full">Full journey</option>
+          <option value="partial">Partial</option>
+        </select>
+      </label>
+      <label>Data quality
+        <select id="filter-quality">
+          <option value="">All</option>
+          <option value="high">High confidence</option>
+          <option value="uncertain">Uncertain / unknown</option>
+        </select>
+      </label>
+    </section>
+
+    <div class="workspace">
+      <section>
+        <h2>Ranked vacant runs</h2>
+        <div class="table-wrap">
+          <table id="results">
+            <thead>
+              <tr>
+                <th data-sort="rank">#</th>
+                <th data-sort="class_code">Class</th>
+                <th data-sort="coach_name">Coach</th>
+                <th data-sort="berth_no">Berth</th>
+                <th data-sort="berth_code">Type</th>
+                <th data-sort="run_from">Run</th>
+                <th data-sort="distance_km">Km</th>
+                <th data-sort="consecutive_segments">Segs</th>
+                <th data-sort="coverage_percent">Cover</th>
+                <th data-sort="vacancy_class">Status</th>
+                <th data-sort="confidence">Quality</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+        <p id="empty" class="empty" hidden></p>
+      </section>
+
+      <section>
+        <h2>Coach layout</h2>
+        <p class="legend">
+          <span class="swatch eligible"></span> confirmed vacant
+          <span class="swatch partial"></span> partial run
+          <span class="swatch occupied"></span> occupied
+          <span class="swatch unknown"></span> unknown / uncertain
+        </p>
+        <div id="coaches" class="coaches"></div>
+      </section>
+    </div>
+
+    <aside id="detail" class="detail" hidden>
+      <h2>Segment explanation</h2>
+      <pre id="detail-body"></pre>
+    </aside>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>

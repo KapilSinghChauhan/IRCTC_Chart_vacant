@@ -1,0 +1,15 @@
+{
+  "cdd": [
+    {"coachName": "S1", "classCode": "SL", "positionFromEngine": 1, "vacantBerths": 0},
+    {"coachName": "B1", "classCode": "3A", "positionFromEngine": 2, "vacantBerths": 0}
+  ],
+  "trainNo": "99999",
+  "trainName": "SYNTHETIC MAIL",
+  "from": "AAA",
+  "to": "DDD",
+  "trainStartDate": "2026-10-14",
+  "remote": "AAA",
+  "nextRemote": null,
+  "error": null,
+  "chartStatusResponseDto": {"messageIndex": 1, "chartOneFlag": 3, "messageType": "S"}
+}
