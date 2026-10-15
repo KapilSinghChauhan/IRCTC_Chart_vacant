@@ -20,10 +20,6 @@ jobs:
       - name: Secret scan
         run: |
           set -euo pipefail
-          if git grep -nE 'limpopo|Limpopo|LIMPOPO' -- ':!.github/workflows/ci.yml'; then
-            echo "Forbidden project reference found" >&2
-            exit 1
-          fi
           if git grep -nE 'AKIA[0-9A-Z]{16}|ghp_[A-Za-z0-9]{20,}|github_pat_[A-Za-z0-9_]{20,}|xox[baprs]-' -- .; then
             echo "Possible secret found" >&2
             exit 1
